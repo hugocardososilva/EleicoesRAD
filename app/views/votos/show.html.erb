@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Candidato:</strong>
+  <%= @voto.candidato.nome %>
+</p>
+
+<p>
+  <strong>Eleitor:</strong>
+  <%= @voto.eleitor.nome %>
+</p>
+
+
+<%= link_to 'Edit', edit_voto_path(@voto) %> |
+<%= link_to 'Back', votos_path %>

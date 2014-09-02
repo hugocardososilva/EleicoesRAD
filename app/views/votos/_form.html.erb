@@ -1,0 +1,29 @@
+<%= form_for(@voto) do |f| %>
+  <% if @voto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@voto.errors.count, "error") %> prohibited this voto from being saved:</h2>
+
+      <ul>
+      <% @voto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label :candidato_id %><br>
+    <%= f.collection_select(:candidato_id ,
+    Candidato.order(:numero),:id, :nome) %>
+  </div>
+  <div class="field">
+    <%= f.label :eleitor_id %><br>
+    <%= f.collection_select(:eleitor_id ,
+    Eleitor.order(:titulo),:id, :nome) %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
